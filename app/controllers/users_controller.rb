@@ -11,26 +11,25 @@ end
 class UsersController < ApplicationController
   # new user
   get '/users/new' do
-    erb :'/users/new.html'
+    erb :'/users/new'
   end
 
   # create user
   post '/create_user' do
     # !current_user?
-    @user = User.new(username: params[:username], email: params[:email],
-                     password: crypt_password(params[:password]))
+    @user = User.new(params[:user])
     if @user.save
       redirect '/'
     else
       flash[:error] = 'Wrong input'
-      redirect '/users/new'
+      erb :'/users/new'
     end
   end
 
   # user sign in
   get '/sign_in' do
     # !current_user?
-    erb :'/users/sign_in.html'
+    erb :'/users/sign_in'
   end
 
   # start user session
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
       redirect '/'
     else
       flash[:error] = 'Email or password was incorrect'
-      erb :'/users/sign_in.html'
+      erb :'/users/sign_in'
     end
   end
 

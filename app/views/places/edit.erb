@@ -3,22 +3,22 @@
   <input type="hidden" name="_method" value="put">
 
     <p><label>Name</label></p>
-    <p><input type="text" name="name" required value="<%=@place.name%>"></p>
+    <p><input type="text" name="place[name]" required value="<%=@place.name%>"></p>
 
 	  <p><label>Enter the description:</label></p>
-	  <p><input type="text" name="description" required value="<%=@place.description%>"></p>
+	  <p><input type="text" name="place[description]" required value="<%=@place.description%>"></p>
 
 	  <p><label>Enter the short description:</label></p>
-	  <p><input type="text" name="short_description" required value="<%=@place.short_description%>"></p>
+	  <p><input type="text" name="place[short_description]" required value="<%=@place.short_description%>"></p>
 
 	  <p><label>Enter picture url:</label></p>
-	  <p><input type="text" name="picture_url" required value="<%=@place.picture_url%>"></p>
+	  <p><input type="text" name="place[picture_url]" required value="<%=@place.picture_url%>"></p>
 
 	  <p><label>Enter latitude:</label></p>
-	  <p><input type="text" name="latitude" required value="<%=@place.latitude%>"></p>
+	  <p><input type="text" name="place[latitude]" required value="<%=@place.latitude%>"></p>
 
 	  <p><label>Enter longitude:</label></p>
-	  <p><input type="text" name="longitude" required value="<%=@place.longitude%>"></p>
+	  <p><input type="text" name="place[longitude]" required value="<%=@place.longitude%>"></p>
 
     <br>
   <button type="submit">Submit</button>
