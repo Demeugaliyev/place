@@ -2,19 +2,8 @@
 <h1>All places</h1>
 
 <script type="text/javascript">
-  placemarks = [];
+  placemarks = <% placemarks.to_json %>
 </script>
-
-
-<% @places.each do |place| %>
-  <script type="text/javascript">
-  	placemarks.push([
-        [ [ <%= place.latitude %> ], [ <%= place.longitude %> ] ],
-        [ '<%= place.name %>' ],
-        [ ['<%= place.short_description %>'], ['<%= place.picture_url %>'] ]                        
-    ]);
-	</script>
-<% end %>
 
 <script type="text/javascript">
 

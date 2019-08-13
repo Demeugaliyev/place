@@ -9,8 +9,6 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @places = Place.all
-    # require 'pry'
-    # binding.pry
     erb :'/places/index'
   end
 
@@ -20,13 +18,21 @@ class ApplicationController < Sinatra::Base
     end
 
     def rating
-      if @place.reviews.any?
-        grades = 0
-        @place.reviews.each { |review| grades += review.grade }
-        grades / @place.reviews.size
-      else
-        nil
+      return 0 if @place.reviews.empty?
+      grades = @place.reviews.map(&:grade)
+      grades.sum / @place.reviews.size
+    end
+
+    def placemarks
+      placemarks = []
+      @places.each do |place|
+        placemarks.push([
+        [ [place.latitude ], [ place.longitude ] ],
+        [ place.name ],
+        [ [ place.short_description ], [ place.picture_url ] ]                        
+      ])
       end
+      placemarks
     end
   end
 end

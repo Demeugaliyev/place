@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     if @user.save
       redirect '/'
     else
-      flash[:error] = 'Wrong input'
       erb :'/users/new'
     end
   end
@@ -40,7 +39,6 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/'
     else
-      flash[:error] = 'Email or password was incorrect'
       erb :'/users/sign_in'
     end
   end

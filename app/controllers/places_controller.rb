@@ -32,7 +32,7 @@ class PlacesController < ApplicationController
 
   # open place
   get '/places/:id' do
-    @rating = rating || 0
+    @rating = rating
     erb :'/places/show'
   end
 

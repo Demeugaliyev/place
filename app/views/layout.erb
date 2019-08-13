@@ -16,16 +16,16 @@
   <body>
 
     <div class="wrapper">
-      <% unless current_user%>
+      <% if current_user %>
+        <form action="/sign_out" method="POST">
+          <input type="submit" value="Sign Out" />
+        </form>
+      <% else %>
         <form action="/users/new" method="GET">
           <input type="submit" value="Sign Up" />
         </form>
         <form action="/sign_in" method="GET">
           <input type="submit" value="Sign In" />
-        </form>
-      <% else %>
-        <form action="/sign_out" method="POST">
-          <input type="submit" value="Sign Out" />
         </form>
       <% end %>
 
@@ -35,7 +35,7 @@
         </div>
       <% end %>
       
-        <%= yield %>
+      <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2019 <strong>Places</strong></small>
