@@ -24,15 +24,10 @@ class ApplicationController < Sinatra::Base
     end
 
     def placemarks
-      placemarks = []
-      @places.each do |place|
-        placemarks.push([
-        [ [place.latitude ], [ place.longitude ] ],
+      @places.map do |place|
+        [ [ [place.latitude ], [ place.longitude ] ],
         [ place.name ],
-        [ [ place.short_description ], [ place.picture_url ] ]                        
-      ])
-      end
-      placemarks
+        [ [ place.short_description ], [ place.picture_url ] ] ]
     end
   end
 end

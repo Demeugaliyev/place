@@ -8,6 +8,7 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
+require 'bcrypt'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'rack-flash'

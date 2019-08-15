@@ -1,13 +1,3 @@
-require 'bcrypt' # can take require from application_controller
-
-def crypt_password(password)
-  BCrypt::Password.create(password).to_s
-end
-
-def test_password(password, hash)
-  BCrypt::Password.new(hash) == password
-end
-
 class UsersController < ApplicationController
   # new user
   get '/users/new' do
@@ -48,5 +38,13 @@ class UsersController < ApplicationController
   # current_user?
     session.destroy
     redirect '/sign_in'
+  end
+  
+  def crypt_password(password)
+    BCrypt::Password.create(password).to_s
+  end
+
+  def test_password(password, hash)
+    BCrypt::Password.new(hash) == password
   end
 end

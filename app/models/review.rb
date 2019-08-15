@@ -3,6 +3,7 @@ class Review < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :place
+  
   validates :grade, inclusion: { in: 0..5 }
   validates :comment, presence: true, if: :need_comment?
   
